@@ -15,7 +15,7 @@
 
     <!-- Project metadata -->
     <groupId>com.gamaza.examples</groupId>
-    <artifactId>graphql</artifactId>
+    <artifactId>spring-graphql</artifactId>
     <version>1.0.0</version>
     <name>Spring GraphQL</name>
     <description>Example of the use of GraphQL with Spring Boot.</description>

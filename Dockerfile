@@ -8,6 +8,6 @@ RUN mvn clean package
 # Stage 2: Run
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target/graphql-1.0.0.jar graphql-1.0.0.jar
+COPY --from=build /app/target/spring-graphql-1.0.0.jar spring-graphql-1.0.0.jar
 EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=dev", "graphql-1.0.0.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=dev", "spring-graphql-1.0.0.jar"]
