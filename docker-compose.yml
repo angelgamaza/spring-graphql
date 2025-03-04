@@ -1,0 +1,23 @@
+services:
+    postgres:
+        image: postgres:17.2-alpine
+        environment:
+            POSTGRES_USER: film
+            POSTGRES_PASSWORD: film
+            POSTGRES_DB: film
+        volumes:
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        ports:
+            - "5432:5432"
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/film
+            SPRING_DATASOURCE_USERNAME: film
+            SPRING_DATASOURCE_PASSWORD: film
+        ports:
+            - "8081:8081"
+        depends_on:
+            - postgres

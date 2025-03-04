@@ -1,0 +1,25 @@
+## Server properties ##
+server:
+    port: 8081
+
+## Spring properties ##
+spring:
+    application:
+        name: spring-graphql
+    graphql:
+        graphiql:
+            enabled: true
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/film
+        username: film
+        password: film
+    jpa:
+        hibernate:
+            ddl-auto: validate
+        open-in-view: false
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true

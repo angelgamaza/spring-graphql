@@ -1,0 +1,63 @@
+## Type: Film
+type Film {
+    id: ID!
+    name: String!
+    country: String!
+}
+
+## Type: Film with Relations
+type FilmRelations {
+    id: ID!
+    name: String!
+    country: String!
+    director: Director!
+}
+
+## Type: Director
+type Director {
+    id: ID!
+    firstName: String!
+    lastName: String!
+}
+
+## Type: Director with Relations
+type DirectorRelations {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    films: [Film]!
+}
+
+## Input: Director
+input DirectorInput {
+    firstName: String!,
+    lastName: String!
+}
+
+## Input: Film
+input FilmInput {
+    name: String!,
+    country: String!,
+    directorId: ID!
+}
+
+## Queries
+type Query {
+    # Director
+    findDirectorById(id: ID!): DirectorRelations!
+    findAllDirectors: [Director]!
+    # Film
+    findFilmById(id: ID!): FilmRelations!
+    findFilmByName(name: String!): FilmRelations!
+    findAllFilms: [Film]!
+    findAllFilmsByCountry(country: String!): [Film]!
+    findAllFilmsByDirectorId(directorId: ID!): [Film]!
+}
+
+## Mutations
+type Mutation {
+    # Director
+    saveDirector(input: DirectorInput!) : Director!
+    # Film
+    saveFilm(input: FilmInput!) : Film!
+}
