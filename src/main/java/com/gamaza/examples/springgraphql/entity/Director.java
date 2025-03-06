@@ -79,12 +79,12 @@ public class Director extends AbstractPersistable<UUID> {
         if (!super.equals(o)) {
             return false;
         }
-        return Objects.equals(firstName, director.firstName) && Objects.equals(lastName, director.lastName) && Objects.equals(films, director.films);
+        return Objects.equals(firstName, director.firstName) && Objects.equals(lastName, director.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), firstName, lastName, films);
+        return Objects.hash(super.hashCode(), firstName, lastName);
     }
 
 }

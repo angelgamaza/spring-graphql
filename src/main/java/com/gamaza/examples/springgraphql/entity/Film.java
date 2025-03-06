@@ -88,12 +88,12 @@ public class Film extends AbstractPersistable<UUID> {
         if (!super.equals(o)) {
             return false;
         }
-        return Objects.equals(name, film.name) && Objects.equals(country, film.country) && Objects.equals(director, film.director);
+        return Objects.equals(name, film.name) && Objects.equals(country, film.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), name, country, director);
+        return Objects.hash(super.hashCode(), name, country);
     }
 
 }
